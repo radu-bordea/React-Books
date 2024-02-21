@@ -1,6 +1,16 @@
-function BookShow() {
-    return <div>BookShow</div>;
+function BookShow({ book, onDelete }) {
+  const handleClick = () => {
+    onDelete(book.id)
   }
-  
-  export default BookShow;
-  
+
+  return (
+    <div className="book-show">
+      {book.title}
+      <div className="actions">
+        <button className="delete" onClick={handleClick}>Delete</button>
+      </div>
+    </div>
+  );
+}
+
+export default BookShow;
