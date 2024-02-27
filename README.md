@@ -7,3 +7,6 @@
 
 // run the server
 - npm run server
+
+// commands
+- npm install axios
