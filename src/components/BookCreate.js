@@ -1,8 +1,10 @@
 import { useState } from "react";
+import useBooksContext from "../hooks/use-books-context";
 
-function BookCreate({ onCreate }) {
+function BookCreate() {
   // State to store the title of the new book
   const [title, setTitle] = useState("");
+  const { createBook } = useBooksContext();
 
   // Function to handle changes in the input field
   const handleChange = (event) => {
@@ -12,8 +14,7 @@ function BookCreate({ onCreate }) {
   // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Call the onCreate function passed from the parent component to create a new book
-    onCreate(title);
+    createBook(title);
     // Clear the input field after submission
     setTitle("");
   };
