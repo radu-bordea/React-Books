@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useCallback } from "react";
 import axios from "axios";
 
 // Creating a context for managing books
@@ -10,14 +10,15 @@ function Provider({ children }) {
   const [books, setBooks] = useState([]);
 
   // Function to fetch books from the server
-  const fetchBooks = async () => {
+  const fetchBooks = useCallback( async () => {
     try {
       const response = await axios.get("http://localhost:3001/books");
       setBooks(response.data);
     } catch (error) {
       console.error("Error fetching books:", error);
     }
-  };
+  }, []);
+
 
   // Function to create a new book
   const createBook = async (title) => {

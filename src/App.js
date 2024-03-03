@@ -11,7 +11,7 @@ function App() {
   // Fetch books from the server when the component mounts
   useEffect(() => {
     fetchBooks();
-  }, []);
+  }, [fetchBooks]);
 
   // Render the main application
   return (
